@@ -1,0 +1,30 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Shobuj
+ * Date: 09-Dec-17
+ * Time: 11:10 AM
+ */
+
+
+
+namespace App\Front\News;
+
+
+use App\Connection;
+use PDO;
+use PDOException;
+
+class News extends Connection
+{
+
+
+    //select data from database
+    public function select($query){
+        $result =$this->con->prepare($query);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+}
